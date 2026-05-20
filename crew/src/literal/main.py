@@ -5,7 +5,7 @@ import warnings
 
 from datetime import datetime
 
-from crew import Literal
+from .crew import Literal
 from dotenv import load_dotenv
 
 load_dotenv()

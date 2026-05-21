@@ -5,7 +5,7 @@ import warnings
 
 from datetime import datetime
 
-from .crew import Literal
+from crew import DynamicCrew
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -99,11 +99,12 @@ def run():
         "topic": "AI LLMs",
         "current_year": str(datetime.now().year)
     }
-
-    execute_with_retry(
-        Literal().crew().kickoff,
+    crew = DynamicCrew("config/request.json").build()
+    result = execute_with_retry(
+        crew.kickoff,
         inputs=inputs
     )
+    print(result)
 
 
 def train():

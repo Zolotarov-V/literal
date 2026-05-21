@@ -1,0 +1,18 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'api/styles.css' %}">
+
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="username">
+        <input type="password" name="password">
+
+        <button type="submit">
+            Sign in
+        </button>
+    </form>
+</body>
